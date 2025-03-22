@@ -29,7 +29,6 @@ function Editor(props: EditorProps) {
       tools: {
         header: Header,
       },
-      defaultBlock: 'header',
       onChange: (e) => {
         console.log(e);
       },
