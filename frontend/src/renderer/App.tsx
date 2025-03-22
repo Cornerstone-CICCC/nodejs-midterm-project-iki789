@@ -2,20 +2,19 @@ import { MemoryRouter as Router, Routes, Route } from 'react-router-dom';
 import './App.css';
 import SidePanel from './Components/SidePanel';
 import Editor from './Components/Editor';
+import TitleBar from './Components/TitleBar';
+import Auth from './Components/Auth';
 
 function Main() {
   return (
     <div>
-      <div
-        /* @ts-ignore */
-        style={{ appRegion: 'drag' }}
-        className="bg-slate-700 text-center text-sm h-8 flex items-center justify-center font-bold rounded-tl-xl rounded-tr-xl"
-      >
-        Electro Notes
-      </div>
-      <div className="flex gap-2">
-        <SidePanel />
-        <Editor />
+      <TitleBar />
+      <div className="relative">
+        <Auth />
+        <div className="flex gap-2 relative z-0">
+          <SidePanel />
+          <Editor initialData={{ blocks: [] }} />
+        </div>
       </div>
     </div>
   );
