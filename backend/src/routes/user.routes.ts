@@ -8,6 +8,6 @@ userRouter.get("/check-auth", userController.checkAuth);
 userRouter.post("/register", userController.addUser);
 userRouter.get("/logout", userController.logout);
 userRouter.post("/login", userController.loginUser);
-userRouter.get("/:username", userController.getUserByUsername);
+userRouter.get("/:email", userController.getUserByEmail);
 
 export default userRouter;

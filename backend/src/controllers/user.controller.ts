@@ -6,12 +6,9 @@ const getAllUsers = (req: Request, res: Response) => {
   res.json(users);
 };
 
-const getUserByUsername = (
-  req: Request<{ username: string }>,
-  res: Response
-) => {
-  const { username } = req.params;
-  const user = userModel.findByUsername(username);
+const getUserByEmail = (req: Request<{ email: string }>, res: Response) => {
+  const { email } = req.params;
+  const user = userModel.findByEmail(email);
 
   if (!user) {
     res.status(404).json({ error: "404 not found!" });
@@ -21,35 +18,41 @@ const getUserByUsername = (
 };
 
 const loginUser = async (
-  req: Request<{}, {}, { username: string; password: string }>,
+  req: Request<{}, {}, { email: string; password: string }>,
   res: Response
 ) => {
-  const { username, password } = req.body;
-  if (!username?.trim() || !password?.trim()) {
-    res.status(500).json({ error: "Username and password required." });
+  const { email, password } = req.body;
+  if (!email?.trim() || !password?.trim()) {
+    res.status(500).json({ error: "email and password required." });
     return;
   }
 
-  const isAuthenticated = await userModel.authenticate(username, password);
+  const isAuthenticated = await userModel.authenticate(email, password);
 
   if (isAuthenticated && req.session) {
-    req.session.isLoggedIn = "true";
-    console.log({ isAuthenticated });
-    res.json({ success: isAuthenticated });
-  } else {
-    res.json({ error: "Invalid username password." });
+    const user = userModel.findByEmail(email);
+    if (user) {
+      req.session.userId = user.id;
+      res.json({ success: isAuthenticated });
+      return;
+    }
+    res.json({ error: "Oops! Something went wrong!" });
   }
+  res.json({ error: "Invalid email password." });
 };
 
-const addUser = (req: Request<{}, {}, Omit<IUser, "id">>, res: Response) => {
-  const { username, password, firstname, lastname } = req.body;
-  if (!username || !password || !firstname || !lastname) {
+const addUser = async (
+  req: Request<{}, {}, Omit<IUser, "id">>,
+  res: Response
+) => {
+  const { name, password, email } = req.body;
+  if (!name || !password || !email) {
     res.status(500).json({
-      error: "All fields are required username, password, firstname, lastname",
+      error: "All fields are required name, password and email",
     });
     return;
   }
-  userModel.create({ username, password, firstname, lastname });
+  await userModel.create({ name, password, email });
   res.json({ success: true });
 };
 
@@ -63,11 +66,10 @@ const logout = (req: Request, res: Response) => {
 
 const checkAuth = async (req: Request, res: Response) => {
   console.log(req.session);
-  if (req.session && req.session.isLoggedIn) {
+  if (req.session && req.session.userId) {
     res.status(200).json({
-      content: req.session.isLoggedIn,
+      userId: req.session.userId,
     });
-
     return;
   }
   res.status(500).json({
@@ -77,7 +79,7 @@ const checkAuth = async (req: Request, res: Response) => {
 
 export default {
   getAllUsers,
-  getUserByUsername,
+  getUserByEmail,
   loginUser,
   addUser,
   logout,

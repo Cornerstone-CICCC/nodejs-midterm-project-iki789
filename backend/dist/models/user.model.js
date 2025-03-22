@@ -14,18 +14,11 @@ var __importDefault = (this && this.__importDefault) || function (mod) {
 Object.defineProperty(exports, "__esModule", { value: true });
 const uuid_1 = require("uuid");
 const bcrypt_1 = __importDefault(require("bcrypt"));
-const users = [
-    {
-        id: "string",
-        username: "gus",
-        password: "gus",
-        firstname: "string",
-        lastname: "string",
-    },
-];
+const db_1 = __importDefault(require("../db"));
+const users = db_1.default.users;
 class UserModel {
-    findByUsername(username) {
-        const user = users.find((u) => u.username === username);
+    findByEmail(email) {
+        const user = users.find((u) => u.email === email);
         if (!user)
             return null;
         return user;
@@ -33,8 +26,8 @@ class UserModel {
     findAll() {
         return users;
     }
-    authenticate(username, password) {
-        const user = users.find((u) => u.username === username);
+    authenticate(email, password) {
+        const user = users.find((u) => u.email === email);
         if (!user)
             return false;
         const passwordMatch = bcrypt_1.default.compare(password, user.password);
@@ -42,8 +35,8 @@ class UserModel {
     }
     create(newUser) {
         return __awaiter(this, void 0, void 0, function* () {
-            const { username, password } = newUser;
-            const foundIndex = users.findIndex((u) => u.username === username);
+            const { email, password } = newUser;
+            const foundIndex = users.findIndex((u) => u.email === email);
             if (foundIndex !== -1)
                 return false;
             const hashedPassword = yield bcrypt_1.default.hash(password, 12);

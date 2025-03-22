@@ -17,9 +17,9 @@ const getAllUsers = (req, res) => {
     const users = user_model_1.default.findAll();
     res.json(users);
 };
-const getUserByUsername = (req, res) => {
-    const { username } = req.params;
-    const user = user_model_1.default.findByUsername(username);
+const getUserByEmail = (req, res) => {
+    const { email } = req.params;
+    const user = user_model_1.default.findByEmail(email);
     if (!user) {
         res.status(404).json({ error: "404 not found!" });
         return;
@@ -27,32 +27,34 @@ const getUserByUsername = (req, res) => {
     res.json(user);
 };
 const loginUser = (req, res) => __awaiter(void 0, void 0, void 0, function* () {
-    const { username, password } = req.body;
-    if (!(username === null || username === void 0 ? void 0 : username.trim()) || !(password === null || password === void 0 ? void 0 : password.trim())) {
-        res.status(500).json({ error: "Username and password required." });
+    const { email, password } = req.body;
+    if (!(email === null || email === void 0 ? void 0 : email.trim()) || !(password === null || password === void 0 ? void 0 : password.trim())) {
+        res.status(500).json({ error: "email and password required." });
         return;
     }
-    const isAuthenticated = yield user_model_1.default.authenticate(username, password);
+    const isAuthenticated = yield user_model_1.default.authenticate(email, password);
     if (isAuthenticated && req.session) {
-        req.session.isLoggedIn = "true";
-        console.log({ isAuthenticated });
-        res.json({ success: isAuthenticated });
+        const user = user_model_1.default.findByEmail(email);
+        if (user) {
+            req.session.userId = user.id;
+            res.json({ success: isAuthenticated });
+            return;
+        }
+        res.json({ error: "Oops! Something went wrong!" });
     }
-    else {
-        res.json({ error: "Invalid username password." });
-    }
+    res.json({ error: "Invalid email password." });
 });
-const addUser = (req, res) => {
-    const { username, password, firstname, lastname } = req.body;
-    if (!username || !password || !firstname || !lastname) {
+const addUser = (req, res) => __awaiter(void 0, void 0, void 0, function* () {
+    const { name, password, email } = req.body;
+    if (!name || !password || !email) {
         res.status(500).json({
-            error: "All fields are required username, password, firstname, lastname",
+            error: "All fields are required name, password and email",
         });
         return;
     }
-    user_model_1.default.create({ username, password, firstname, lastname });
+    yield user_model_1.default.create({ name, password, email });
     res.json({ success: true });
-};
+});
 const logout = (req, res) => {
     if (req.session) {
         req.session = null;
@@ -62,9 +64,9 @@ const logout = (req, res) => {
 };
 const checkAuth = (req, res) => __awaiter(void 0, void 0, void 0, function* () {
     console.log(req.session);
-    if (req.session && req.session.isLoggedIn) {
+    if (req.session && req.session.userId) {
         res.status(200).json({
-            content: req.session.isLoggedIn,
+            userId: req.session.userId,
         });
         return;
     }
@@ -74,7 +76,7 @@ const checkAuth = (req, res) => __awaiter(void 0, void 0, void 0, function* () {
 });
 exports.default = {
     getAllUsers,
-    getUserByUsername,
+    getUserByEmail,
     loginUser,
     addUser,
     logout,

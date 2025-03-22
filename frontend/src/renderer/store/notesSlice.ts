@@ -25,6 +25,7 @@ interface EditorNote {
 
 type Note = {
   id: string;
+  userId: string;
   note: EditorNote;
 };
 

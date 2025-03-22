@@ -1,27 +1,19 @@
 import { v4 as uuidv4 } from "uuid";
 import bcrypt from "bcrypt";
+import db from "../db";
 
-const users: IUser[] = [
-  {
-    id: "string",
-    username: "gus",
-    password: "gus",
-    firstname: "string",
-    lastname: "string",
-  },
-];
+const users: IUser[] = db.users;
 
 export interface IUser {
   id: string;
-  username: string;
+  name: string;
   password: string;
-  firstname: string;
-  lastname: string;
+  email: string;
 }
 
 class UserModel {
-  findByUsername(username: string): IUser | null {
-    const user = users.find((u) => u.username === username);
+  findByEmail(email: string): IUser | null {
+    const user = users.find((u) => u.email === email);
     if (!user) return null;
     return user;
   }
@@ -30,8 +22,8 @@ class UserModel {
     return users;
   }
 
-  authenticate(username: string, password: string) {
-    const user = users.find((u) => u.username === username);
+  authenticate(email: string, password: string) {
+    const user = users.find((u) => u.email === email);
     if (!user) return false;
 
     const passwordMatch = bcrypt.compare(password, user.password);
@@ -39,8 +31,8 @@ class UserModel {
   }
 
   async create(newUser: Omit<IUser, "id">) {
-    const { username, password } = newUser;
-    const foundIndex = users.findIndex((u) => u.username === username);
+    const { email, password } = newUser;
+    const foundIndex = users.findIndex((u) => u.email === email);
     if (foundIndex !== -1) return false;
     const hashedPassword = await bcrypt.hash(password, 12);
     const user = {
