@@ -29,3 +29,13 @@ a:hover {
   opacity: 1;
   text-decoration: none;
 }
+
+.ce-block__content,
+.ce-toolbar__content {
+  max-width: 100%;
+}
+
+.ce-toolbar__plus,
+.ce-toolbar__settings-btn {
+  opacity: 0;
+}
