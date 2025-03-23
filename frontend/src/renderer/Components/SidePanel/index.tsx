@@ -1,11 +1,12 @@
 import React, { useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import ActionControls from './ActionControls';
-import { setNotes, Note } from '../../store/notesSlice';
+import { Note, setNotes, setActiveNote } from '../../store/notesSlice';
 import { AppState } from '../../store';
 
 function SidePanel() {
   const notes = useSelector((state: AppState) => state.notes.notes);
+  const activeNote = useSelector((state: AppState) => state.notes.activeNote);
   const dispatch = useDispatch();
 
   useEffect(() => {
@@ -19,9 +20,9 @@ function SidePanel() {
     })();
   }, [dispatch]);
 
-  useEffect(() => {
-    console.log(notes);
-  }, [notes]);
+  const handleNoteClick = (noteId: string) => {
+    dispatch(setActiveNote(notes.find((note) => note.id === noteId) || null));
+  };
 
   return (
     <div className="px-2 select-none h-svh bg-slate-700 w-[250px]">
@@ -36,10 +37,12 @@ function SidePanel() {
             className="border-b-1 border-slate-500 pb-2 pt-1 last:border-0"
           >
             <div
-              className="py-2 px-4 text-sm rounded-xl hover:cursor-pointer hover:bg-slate-500"
+              className={`py-2 px-4 text-sm rounded-xl hover:cursor-pointer hover:bg-slate-500 ${activeNote && activeNote.id === note.id && 'bg-slate-600'} `}
               role="button"
-              onClick={() => console.log('')}
-              onKeyDown={() => console.log('')}
+              onClick={() => handleNoteClick(note.id)}
+              onKeyDown={(e) => {
+                if (e.key === 'Enter') handleNoteClick(note.id);
+              }}
               tabIndex={0}
             >
               <h3 className="font-semibold mb-1">

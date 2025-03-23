@@ -33,11 +33,13 @@ export type Note = {
 export interface NotesState {
   isLoading: boolean;
   notes: Array<Note>;
+  activeNote: Note | null;
 }
 
 const initialState: NotesState = {
   isLoading: false,
   notes: [],
+  activeNote: null,
 };
 
 export const notesSlice = createSlice({
@@ -51,8 +53,21 @@ export const notesSlice = createSlice({
       const index = state.notes.findIndex((note) => note.id === action.payload);
       if (index) state.notes.slice(index, 1);
     },
+    update: (
+      state,
+      action: PayloadAction<{ id: string; note: EditorNote }>,
+    ) => {
+      const { id, note } = action.payload;
+      const index = state.notes.findIndex((n) => n.id === id);
+      const newNotes = state.notes;
+      newNotes[index].note = note;
+      state.notes = newNotes;
+    },
     setNotes: (state, action: PayloadAction<Note[]>) => {
       state.notes = action.payload;
+    },
+    setActiveNote: (state, action: PayloadAction<Note | null>) => {
+      state.activeNote = action.payload;
     },
   },
   selectors: {
@@ -62,7 +77,8 @@ export const notesSlice = createSlice({
   },
 });
 
-export const { add, remove, setNotes } = notesSlice.actions;
+export const { add, remove, update, setNotes, setActiveNote } =
+  notesSlice.actions;
 export const { getNote } = notesSlice.selectors;
 
 export default notesSlice;

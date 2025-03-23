@@ -3,7 +3,7 @@ import cors from "cors";
 import cookieParser from "cookie-parser";
 import userRouter from "./routes/user.routes";
 import cookieSession from "cookie-session";
-import noteRouter from "./routes/note.model";
+import noteRouter from "./routes/note.route";
 
 const app = express();
 app.use(
