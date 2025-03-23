@@ -29,7 +29,7 @@ const getUserByEmail = (req, res) => {
 const loginUser = (req, res) => __awaiter(void 0, void 0, void 0, function* () {
     const { email, password } = req.body;
     if (!(email === null || email === void 0 ? void 0 : email.trim()) || !(password === null || password === void 0 ? void 0 : password.trim())) {
-        res.status(500).json({ error: "email and password required." });
+        res.status(500).json({ error: "Email and password required." });
         return;
     }
     const isAuthenticated = yield user_model_1.default.authenticate(email, password);
@@ -48,7 +48,14 @@ const addUser = (req, res) => __awaiter(void 0, void 0, void 0, function* () {
     const { name, password, email } = req.body;
     if (!name || !password || !email) {
         res.status(500).json({
-            error: "All fields are required name, password and email",
+            error: "All fields are required name, password, confirm password and email",
+        });
+        return;
+    }
+    const user = user_model_1.default.findByEmail(email);
+    if (user) {
+        res.status(500).json({
+            error: `Account with email ${email} already exists.`,
         });
         return;
     }

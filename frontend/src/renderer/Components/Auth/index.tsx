@@ -1,24 +1,60 @@
-import React, { FormEvent, useState } from 'react';
+import React, { FormEvent, useState, useRef, useEffect } from 'react';
+import { useDispatch } from 'react-redux';
+import { login } from '../../store/userSlice';
 import Loading from '../Loading';
 
 function Auth() {
+  const dispatch = useDispatch();
   const [isLoading, setIsLoading] = useState(false);
   const [isRegister, setIsRegister] = useState(false);
+  const [error, setError] = useState('');
+  const formRef = useRef<HTMLFormElement | null>(null);
 
-  const handleSubmit = (e: FormEvent<HTMLFormElement>) => {
+  useEffect(() => {
+    setError('');
+  }, [isRegister]);
+
+  const handleFormRequest = async (formData: unknown) => {
+    const url = `http://localhost:3001/users/${isRegister ? 'register' : 'login'}`;
+    const req = await fetch(url, {
+      method: 'POST',
+      body: JSON.stringify(formData),
+      headers: {
+        'Content-Type': 'application/json',
+      },
+    });
+    const res = await req.json();
+
+    if (res.error) {
+      setError(res.error);
+      return;
+    }
+
+    if (!isRegister && res.success) dispatch(login(res));
+    if (isRegister) {
+      setIsRegister(!isRegister);
+      // eslint-disable-next-line no-alert
+      alert('Successfully created your account!✅');
+    }
+    if (error) setError('');
+    formRef.current?.reset();
+  };
+
+  const handleSubmit = async (e: FormEvent<HTMLFormElement>) => {
     e.preventDefault();
     setIsLoading(true);
-    setTimeout(() => {
-      console.log(e);
-      setIsLoading(false);
-    }, 2000);
+    const formData = new FormData(e.currentTarget);
+
+    await handleFormRequest(Object.fromEntries(formData));
+
+    setIsLoading(false);
   };
 
   return (
     <div className="absolute top-0 left-0 bg-gray-800 w-svw h-svh z-10">
       <div className="grid h-full">
         <div className="place-self-center">
-          <form className="w-[260px]" onSubmit={handleSubmit}>
+          <form className="w-[260px]" onSubmit={handleSubmit} ref={formRef}>
             <div className="w-full text-center">
               <img
                 className="w-20 mb-5 rounded-full select-none inline border-gray-200 border-2"
@@ -35,21 +71,15 @@ function Auth() {
                   name="name"
                   placeholder="Name"
                 />
-                {/* <p className="mt-1 text-sm text-green-600 dark:text-green-500">
-                Username available!
-              </p> */}
               </div>
             )}
             <div className="mb-2">
               <input
                 className="w-full bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block p-2.5 focus:outline-0"
                 type="email"
-                name="Email"
+                name="email"
                 placeholder="Email"
               />
-              {/* <p className="mt-1 text-sm text-green-600 dark:text-green-500">
-                Username available!
-              </p> */}
             </div>
             <div className="mb-2">
               <input
@@ -70,9 +100,11 @@ function Auth() {
               </div>
             )}
             <div className="mb-2">
-              <p className="mt-1 text-xs text-red-600 dark:text-red-500">
-                Oops! Invalid username or password!
-              </p>
+              {error && (
+                <p className="mt-1 text-xs text-red-600 dark:text-red-500">
+                  {error}
+                </p>
+              )}
             </div>
             <div className="mb-2">
               <button

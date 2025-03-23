@@ -10,7 +10,7 @@ const cookie_session_1 = __importDefault(require("cookie-session"));
 const note_model_1 = __importDefault(require("./routes/note.model"));
 const app = (0, express_1.default)();
 app.use((0, cors_1.default)({
-    origin: "http://localhost:4321", // Astro port
+    origin: "http://localhost:1212",
     credentials: true, // allow cookies
 }));
 app.use(express_1.default.json());

@@ -8,7 +8,7 @@ import noteRouter from "./routes/note.model";
 const app = express();
 app.use(
   cors({
-    origin: "http://localhost:4321", // Astro port
+    origin: "http://localhost:1212",
     credentials: true, // allow cookies
   })
 );

@@ -23,7 +23,7 @@ const loginUser = async (
 ) => {
   const { email, password } = req.body;
   if (!email?.trim() || !password?.trim()) {
-    res.status(500).json({ error: "email and password required." });
+    res.status(500).json({ error: "Email and password required." });
     return;
   }
 
@@ -48,10 +48,20 @@ const addUser = async (
   const { name, password, email } = req.body;
   if (!name || !password || !email) {
     res.status(500).json({
-      error: "All fields are required name, password and email",
+      error:
+        "All fields are required name, password, confirm password and email",
     });
     return;
   }
+
+  const user = userModel.findByEmail(email);
+  if (user) {
+    res.status(500).json({
+      error: `Account with email ${email} already exists.`,
+    });
+    return;
+  }
+
   await userModel.create({ name, password, email });
   res.json({ success: true });
 };

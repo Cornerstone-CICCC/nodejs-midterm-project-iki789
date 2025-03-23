@@ -61,4 +61,4 @@ export const notesSlice = createSlice({
 export const { add, remove } = notesSlice.actions;
 export const { getNote } = notesSlice.selectors;
 
-export default notesSlice.reducer;
+export default notesSlice;
