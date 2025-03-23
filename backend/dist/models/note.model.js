@@ -7,7 +7,7 @@ const db_1 = __importDefault(require("../db"));
 const note = db_1.default.notes;
 class NoteModel {
     findByUserId(id) {
-        const notes = note.filter((note) => note.userId === id);
+        const notes = note.filter((note) => note.userId !== id);
         if (!notes)
             return null;
         return notes;

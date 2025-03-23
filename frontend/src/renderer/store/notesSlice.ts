@@ -17,19 +17,20 @@ type ParagraphBlock = {
 
 type EditorBlock = HeaderBlock | ParagraphBlock;
 
-interface EditorNote {
+export interface EditorNote {
   time: number;
   blocks: EditorBlock[];
   version: string;
 }
 
-type Note = {
+export type Note = {
   id: string;
   userId: string;
+  createdAt: string;
   note: EditorNote;
 };
 
-interface NotesState {
+export interface NotesState {
   isLoading: boolean;
   notes: Array<Note>;
 }
@@ -50,6 +51,9 @@ export const notesSlice = createSlice({
       const index = state.notes.findIndex((note) => note.id === action.payload);
       if (index) state.notes.slice(index, 1);
     },
+    setNotes: (state, action: PayloadAction<Note[]>) => {
+      state.notes = action.payload;
+    },
   },
   selectors: {
     getNote: (state, id: string) => {
@@ -58,7 +62,7 @@ export const notesSlice = createSlice({
   },
 });
 
-export const { add, remove } = notesSlice.actions;
+export const { add, remove, setNotes } = notesSlice.actions;
 export const { getNote } = notesSlice.selectors;
 
 export default notesSlice;

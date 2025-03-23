@@ -1,8 +1,10 @@
 import { INote, Note } from "./models/note.model";
+import { v4 as uuid } from "uuid";
 
 const notes: Note[] = [
   {
-    id: "adsasdddada",
+    id: uuid(),
+    createdAt: new Date().toLocaleDateString(),
     userId: "ede471c6-18a6-40f2-8ef6-df7a8a75fd2d",
     note: {
       time: 1678901234001,
@@ -37,7 +39,8 @@ const notes: Note[] = [
     },
   },
   {
-    id: "adsasdddada",
+    id: uuid(),
+    createdAt: new Date().toLocaleDateString(),
     userId: "ede471c6-18a6-40f2-8ef6-df7a8a75fd2d",
     note: {
       time: 1678901234002,
@@ -72,7 +75,8 @@ const notes: Note[] = [
     },
   },
   {
-    id: "adsasdddada",
+    id: uuid(),
+    createdAt: new Date().toLocaleDateString(),
     userId: "ede471c6-18a6-40f2-8ef6-df7a8a75fd2d",
     note: {
       time: 1678901234003,
@@ -107,7 +111,8 @@ const notes: Note[] = [
     },
   },
   {
-    id: "adsasdddada",
+    id: uuid(),
+    createdAt: new Date().toLocaleDateString(),
     userId: "ede471c6-18a6-40f2-8ef6-df7a8a75fd2d",
     note: {
       time: 1678901234004,
@@ -142,7 +147,8 @@ const notes: Note[] = [
     },
   },
   {
-    id: "adsasdddada",
+    id: uuid(),
+    createdAt: new Date().toLocaleDateString(),
     userId: "ede471c6-18a6-40f2-8ef6-df7a8a75fd2d",
     note: {
       time: 1678901234005,
@@ -177,7 +183,8 @@ const notes: Note[] = [
     },
   },
   {
-    id: "adsasdddada",
+    id: uuid(),
+    createdAt: new Date().toLocaleDateString(),
     userId: "ede471c6-18a6-40f2-8ef6-df7a8a75fd2d",
     note: {
       time: 1678901234006,
@@ -212,7 +219,8 @@ const notes: Note[] = [
     },
   },
   {
-    id: "adsasdddada",
+    id: uuid(),
+    createdAt: new Date().toLocaleDateString(),
     userId: "ede471c6-18a6-40f2-8ef6-df7a8a75fd2d",
     note: {
       time: 1678901234007,
@@ -247,7 +255,8 @@ const notes: Note[] = [
     },
   },
   {
-    id: "adsasdddada",
+    id: uuid(),
+    createdAt: new Date().toLocaleDateString(),
     userId: "ede471c6-18a6-40f2-8ef6-df7a8a75fd2d",
     note: {
       time: 1678901234008,
@@ -282,7 +291,8 @@ const notes: Note[] = [
     },
   },
   {
-    id: "adsasdddada",
+    id: uuid(),
+    createdAt: new Date().toLocaleDateString(),
     userId: "ede471c6-18a6-40f2-8ef6-df7a8a75fd2d",
     note: {
       time: 1678901234009,
@@ -317,7 +327,8 @@ const notes: Note[] = [
     },
   },
   {
-    id: "adsasdddada",
+    id: uuid(),
+    createdAt: new Date().toLocaleDateString(),
     userId: "ede471c6-18a6-40f2-8ef6-df7a8a75fd2d",
     note: {
       time: 1678901234010,

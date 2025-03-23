@@ -79,6 +79,7 @@ function Auth() {
                 type="email"
                 name="email"
                 placeholder="Email"
+                value="ryoga@ishii.com"
               />
             </div>
             <div className="mb-2">
@@ -87,6 +88,7 @@ function Auth() {
                 type="password"
                 name="password"
                 placeholder="Password"
+                value="gus"
               />
             </div>
             {isRegister && (

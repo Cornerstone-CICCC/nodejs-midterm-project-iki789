@@ -28,6 +28,7 @@ interface EditorNote {
 export type Note = {
   id: string;
   userId: string;
+  createdAt: string;
   note: EditorNote;
 };
 
@@ -37,7 +38,7 @@ const note: INote = db.notes;
 
 class NoteModel {
   findByUserId(id: string): Note[] | null {
-    const notes = note.filter((note) => note.userId === id);
+    const notes = note.filter((note) => note.userId !== id);
     if (!notes) return null;
     return notes;
   }
