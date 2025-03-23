@@ -9,7 +9,7 @@ function ButtonIcon(props: React.PropsWithChildren<ButtonIconProps>) {
   return (
     <button
       type="button"
-      onClick={(e) => onClick(e)}
+      onClick={onClick}
       className="px-2 py-1 rounded-md hover:cursor-pointer hover:bg-slate-800"
     >
       {children}

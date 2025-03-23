@@ -26,7 +26,7 @@ export interface EditorNote {
 export type Note = {
   id: string;
   userId: string;
-  createdAt: string;
+  createdAt: Date;
   note: EditorNote;
 };
 
@@ -47,11 +47,14 @@ export const notesSlice = createSlice({
   initialState,
   reducers: {
     add: (state, action: PayloadAction<Note>) => {
-      state.notes.push(action.payload);
+      state.notes.unshift(action.payload);
     },
     remove: (state, action: PayloadAction<string>) => {
-      const index = state.notes.findIndex((note) => note.id === action.payload);
-      if (index) state.notes.slice(index, 1);
+      const id = action.payload;
+      state.notes = state.notes.filter((note) => note.id !== id);
+      if (state.notes[0]) {
+        state.activeNote = { ...state.notes[0] };
+      }
     },
     update: (
       state,
@@ -74,11 +77,16 @@ export const notesSlice = createSlice({
     getNote: (state, id: string) => {
       return state.notes.find((note) => note.id === id);
     },
+    getNotes: (state) => {
+      return state.notes.sort(
+        (a, b) => b.createdAt.getTime() - a.createdAt.getTime(),
+      );
+    },
   },
 });
 
 export const { add, remove, update, setNotes, setActiveNote } =
   notesSlice.actions;
-export const { getNote } = notesSlice.selectors;
+export const { getNote, getNotes } = notesSlice.selectors;
 
 export default notesSlice;

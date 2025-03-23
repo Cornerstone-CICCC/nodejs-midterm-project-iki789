@@ -8,14 +8,21 @@ const db_1 = __importDefault(require("../db"));
 let notes = [...db_1.default.notes];
 class NoteModel {
     findByUserId(id) {
+        console.log(id);
         const note = notes.filter((n) => n.userId === id);
         if (!note)
             return [];
         return note;
     }
-    addNote(note) {
-        const newNote = Object.assign(Object.assign({}, note), { id: (0, uuid_1.v4)(), createdAt: new Date() });
-        notes.push(newNote);
+    addNote(userId, note) {
+        const newNote = Object.assign({ 
+            // @ts-ignore
+            id: (0, uuid_1.v4)(), 
+            // @ts-ignore
+            createdAt: new Date(), 
+            // @ts-ignore
+            userId }, note);
+        notes.unshift(newNote);
         return newNote;
     }
     removeNote(id) {

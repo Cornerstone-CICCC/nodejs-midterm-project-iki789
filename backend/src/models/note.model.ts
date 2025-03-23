@@ -38,18 +38,23 @@ let notes: INote = [...db.notes];
 
 class NoteModel {
   findByUserId(id: string): Note[] | null {
+    console.log(id);
     const note = notes.filter((n) => n.userId === id);
     if (!note) return [];
     return note;
   }
 
-  addNote(note: Omit<Note, "id">) {
-    const newNote: Note = {
-      ...note,
+  addNote(userId: string, note: Omit<Note, "id | createdAt">) {
+    const newNote: Omit<Note, "id | createdAt"> = {
+      // @ts-ignore
       id: uuidv4(),
+      // @ts-ignore
       createdAt: new Date(),
+      // @ts-ignore
+      userId,
+      ...note,
     };
-    notes.push(newNote);
+    notes.unshift(newNote);
     return newNote;
   }
 

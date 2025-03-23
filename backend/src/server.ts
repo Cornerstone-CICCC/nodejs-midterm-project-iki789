@@ -1,6 +1,5 @@
 import express from "express";
 import cors from "cors";
-import cookieParser from "cookie-parser";
 import userRouter from "./routes/user.routes";
 import cookieSession from "cookie-session";
 import noteRouter from "./routes/note.route";
@@ -14,11 +13,14 @@ app.use(
 );
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
+app.set("trust proxy", 1); // trust first proxy
 app.use(
   cookieSession({
     name: "session",
     keys: ["somestring", "somesecurestring"],
     maxAge: 5 * 60 * 1000,
+    sameSite: "lax",
+    secure: false,
   })
 );
 

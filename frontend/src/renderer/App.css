@@ -57,3 +57,7 @@ button {
 .ce-toolbar__settings-btn {
   opacity: 0;
 }
+
+.ce-header {
+  font-size: 2rem;
+}

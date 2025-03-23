@@ -37,6 +37,7 @@ const loginUser = (req, res) => __awaiter(void 0, void 0, void 0, function* () {
         const user = user_model_1.default.findByEmail(email);
         if (user) {
             req.session.userId = user.id;
+            console.log(req.session);
             res.json({ success: isAuthenticated });
             return;
         }

@@ -15,10 +15,13 @@ app.use((0, cors_1.default)({
 }));
 app.use(express_1.default.json());
 app.use(express_1.default.urlencoded({ extended: true }));
+app.set("trust proxy", 1); // trust first proxy
 app.use((0, cookie_session_1.default)({
     name: "session",
     keys: ["somestring", "somesecurestring"],
     maxAge: 5 * 60 * 1000,
+    sameSite: "lax",
+    secure: false,
 }));
 app.use("/users", user_routes_1.default);
 app.use("/notes", note_route_1.default);

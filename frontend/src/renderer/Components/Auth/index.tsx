@@ -22,6 +22,7 @@ function Auth() {
       headers: {
         'Content-Type': 'application/json',
       },
+      credentials: 'include',
     });
     const res = await req.json();
 

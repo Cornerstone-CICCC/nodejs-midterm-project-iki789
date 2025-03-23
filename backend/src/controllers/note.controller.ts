@@ -15,21 +15,24 @@ const getAllUserNotes = (req: Request, res: Response) => {
   const notes = noteModel.findByUserId(req?.session?.userId);
 
   if (!notes) {
-    res.status(404).json({ error: "404 not found!" });
+    res.status(404).json({ error: "no notes found" });
     return;
   }
   res.json(notes);
 };
 
-const addUserNote = (req: Request<{}, {}, Omit<Note, "id">>, res: Response) => {
+const addUserNote = (
+  req: Request<{}, {}, Omit<Note, "id | createdAt | userId">>,
+  res: Response
+) => {
   if (!req?.session?.userId) {
     res.status(401).json({ error: "Unauthorized to update note." });
     return;
   }
 
   const note = req.body;
-  const newNote = noteModel.addNote(note);
-  res.json({ newNote });
+  const newNote = noteModel.addNote(req.session.userId, note);
+  res.json(newNote);
 };
 
 const updateUserNote = (req: Request<{}, {}, Note>, res: Response) => {

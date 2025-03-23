@@ -1,5 +1,6 @@
 import React, { useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
+import moment from 'moment';
 import ActionControls from './ActionControls';
 import { Note, setNotes, setActiveNote } from '../../store/notesSlice';
 import { AppState } from '../../store';
@@ -11,7 +12,12 @@ function SidePanel() {
 
   useEffect(() => {
     (async () => {
-      const req = await fetch('http://localhost:3001/notes/user');
+      const req = await fetch('http://localhost:3001/notes/user', {
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        credentials: 'include',
+      });
       const res = (await req.json()) as Note[];
 
       if (res) {
@@ -46,14 +52,24 @@ function SidePanel() {
               tabIndex={0}
             >
               <h3 className="font-semibold mb-1">
-                {note.note.blocks[0].data.text.length > 10
+                {/* eslint-disable-next-line no-nested-ternary   */}
+                {note.note.blocks.length &&
+                note.note.blocks[0].data.text.length > 20
                   ? `${note.note.blocks[0].data.text.substring(0, 20)}...`
-                  : note.note.blocks[0].data.text}
+                  : note.note.blocks.length
+                    ? note.note.blocks[0].data.text
+                    : 'New Note'}
+                {note.note.blocks.length &&
+                  note.note.blocks[0].data.text === '' &&
+                  'New Note'}
               </h3>
               <div className="flex gap-2">
-                <div className="">{note.createdAt}</div>
-                <div className="text-gray-400">
-                  {note.note.blocks[1] &&
+                <div className="text-xs">
+                  {moment(note.createdAt).format('LL')}
+                </div>
+                <div className="text-gray-400 text-xs">
+                  {note.note.blocks.length > 1 &&
+                    note.note.blocks[1] &&
                     `${note.note.blocks[1].data.text.substring(0, 10)}...`}
                 </div>
               </div>

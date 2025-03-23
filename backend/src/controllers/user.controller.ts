@@ -33,6 +33,7 @@ const loginUser = async (
     const user = userModel.findByEmail(email);
     if (user) {
       req.session.userId = user.id;
+      console.log(req.session);
       res.json({ success: isAuthenticated });
       return;
     }

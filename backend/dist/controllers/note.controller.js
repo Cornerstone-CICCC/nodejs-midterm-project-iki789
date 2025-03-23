@@ -17,7 +17,7 @@ const getAllUserNotes = (req, res) => {
     }
     const notes = note_model_1.default.findByUserId((_b = req === null || req === void 0 ? void 0 : req.session) === null || _b === void 0 ? void 0 : _b.userId);
     if (!notes) {
-        res.status(404).json({ error: "404 not found!" });
+        res.status(404).json({ error: "no notes found" });
         return;
     }
     res.json(notes);
@@ -29,8 +29,8 @@ const addUserNote = (req, res) => {
         return;
     }
     const note = req.body;
-    const newNote = note_model_1.default.addNote(note);
-    res.json({ newNote });
+    const newNote = note_model_1.default.addNote(req.session.userId, note);
+    res.json(newNote);
 };
 const updateUserNote = (req, res) => {
     var _a;
