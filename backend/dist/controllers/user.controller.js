@@ -93,7 +93,6 @@ const logout = (req, res) => {
     res.json({ success: true, message: "User logged out successfully" });
 };
 const checkAuth = (req, res) => __awaiter(void 0, void 0, void 0, function* () {
-    console.log(req.session);
     if (req.session && req.session.userId) {
         res.status(200).json({
             userId: req.session.userId,

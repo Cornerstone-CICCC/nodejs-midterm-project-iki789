@@ -620,9 +620,9 @@ export default {
   users: [
     {
       id: "ede471c6-18a6-40f2-8ef6-df7a8a75fd2d",
-      name: "Itachi Uchiha",
+      name: "Obito Uchiha",
       password: "$2b$12$4.fmcm0o5bcVfqTKCJ2DSuJFHd4cGwO.FhrX.VKmek7N89V0AeDl2",
-      email: "itachi@uchiha.com",
+      email: "obito@uchiha.com",
     },
     {
       name: "Naruto Uzumaki",

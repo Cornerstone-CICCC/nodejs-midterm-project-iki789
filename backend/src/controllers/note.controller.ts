@@ -43,7 +43,7 @@ const updateUserNote = (req: Request<{}, {}, Note>, res: Response) => {
     return;
   }
   const note = req.body;
-  console.log(note);
+  console.log(`Updated Note: ${note.id}`);
   const notes = noteModel.updateNote(note);
 
   if (!notes) {

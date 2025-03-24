@@ -61,3 +61,9 @@ button {
   font-weight: bold;
   padding-top: 0 !important;
 }
+.ce-inline-toolbar {
+  color: #333 !important;
+}
+::selection {
+  background-color: rgba(85, 85, 85, 0.556) !important;
+}

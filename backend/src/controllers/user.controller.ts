@@ -101,7 +101,6 @@ const logout = (req: Request, res: Response) => {
 };
 
 const checkAuth = async (req: Request, res: Response) => {
-  console.log(req.session);
   if (req.session && req.session.userId) {
     res.status(200).json({
       userId: req.session.userId,

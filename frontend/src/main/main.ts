@@ -93,7 +93,8 @@ const createWindow = async () => {
     height: 728,
     minWidth: 512,
     minHeight: 256,
-    icon: getAssetPath('icon.png'),
+    // icon: getAssetPath('icon.png'),
+    icon: `${__dirname}/icon.png`,
     titleBarOverlay: {
       color: '#333',
       symbolColor: '#fff',

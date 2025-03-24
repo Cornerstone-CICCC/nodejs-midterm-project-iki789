@@ -41,7 +41,7 @@ const updateUserNote = (req, res) => {
         return;
     }
     const note = req.body;
-    console.log(note);
+    console.log(`Updated Note: ${note.id}`);
     const notes = note_model_1.default.updateNote(note);
     if (!notes) {
         res.status(404).json({ error: "Note not found!" });
