@@ -10,7 +10,7 @@ function ButtonIcon(props: React.PropsWithChildren<ButtonIconProps>) {
     <button
       type="button"
       onClick={onClick}
-      className="px-2 py-1 rounded-md hover:cursor-pointer hover:bg-slate-800"
+      className="px-2 py-1 rounded-md hover:cursor-pointer hover:bg-slate-300 dark:hover:bg-slate-800"
     >
       {children}
     </button>

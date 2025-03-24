@@ -45,5 +45,17 @@ class UserModel {
             return user;
         });
     }
+    update(newUser) {
+        return __awaiter(this, void 0, void 0, function* () {
+            const { email, password, id } = newUser;
+            const foundIndex = users.findIndex((u) => u.id === id);
+            if (foundIndex === -1)
+                return false;
+            const hashedPassword = yield bcrypt_1.default.hash(password, 12);
+            const user = Object.assign(Object.assign({}, newUser), { password: hashedPassword });
+            users[foundIndex] = user;
+            return user;
+        });
+    }
 }
 exports.default = new UserModel();

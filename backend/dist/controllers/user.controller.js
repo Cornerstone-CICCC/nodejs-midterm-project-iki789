@@ -63,6 +63,27 @@ const addUser = (req, res) => __awaiter(void 0, void 0, void 0, function* () {
     yield user_model_1.default.create({ name, password, email });
     res.json({ success: true });
 });
+const updateUser = (req, res) => __awaiter(void 0, void 0, void 0, function* () {
+    var _a;
+    if (!((_a = req === null || req === void 0 ? void 0 : req.session) === null || _a === void 0 ? void 0 : _a.userId)) {
+        res.status(401).json({ error: "Not authorized" });
+        return;
+    }
+    const { name, password, email } = req.body;
+    if (!name || !password || !email) {
+        res.status(500).json({
+            error: "All fields are required name, password, confirm password and email",
+        });
+        return;
+    }
+    const user = Object.assign(Object.assign({}, req.body), { id: req.session.userId });
+    const result = yield user_model_1.default.update(user);
+    if (!result) {
+        res.json({ error: "User account does not exists!" });
+        return;
+    }
+    res.json({ success: true });
+});
 const logout = (req, res) => {
     if (req.session) {
         req.session = null;
@@ -87,6 +108,7 @@ exports.default = {
     getUserByEmail,
     loginUser,
     addUser,
+    updateUser,
     logout,
     checkAuth,
 };

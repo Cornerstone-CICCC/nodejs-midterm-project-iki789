@@ -67,6 +67,30 @@ const addUser = async (
   res.json({ success: true });
 };
 
+const updateUser = async (req: Request<{}, {}, IUser>, res: Response) => {
+  if (!req?.session?.userId) {
+    res.status(401).json({ error: "Not authorized" });
+    return;
+  }
+  const { name, password, email } = req.body;
+  if (!name || !password || !email) {
+    res.status(500).json({
+      error:
+        "All fields are required name, password, confirm password and email",
+    });
+    return;
+  }
+
+  const user = { ...req.body, id: req.session.userId };
+
+  const result = await userModel.update(user);
+  if (!result) {
+    res.json({ error: "User account does not exists!" });
+    return;
+  }
+  res.json({ success: true });
+};
+
 const logout = (req: Request, res: Response) => {
   if (req.session) {
     req.session = null;
@@ -93,6 +117,7 @@ export default {
   getUserByEmail,
   loginUser,
   addUser,
+  updateUser,
   logout,
   checkAuth,
 };

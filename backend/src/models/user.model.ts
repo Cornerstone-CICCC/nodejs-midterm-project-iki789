@@ -43,6 +43,19 @@ class UserModel {
     users.push(user);
     return user;
   }
+
+  async update(newUser: IUser) {
+    const { email, password, id } = newUser;
+    const foundIndex = users.findIndex((u) => u.id === id);
+    if (foundIndex === -1) return false;
+    const hashedPassword = await bcrypt.hash(password, 12);
+    const user = {
+      ...newUser,
+      password: hashedPassword,
+    };
+    users[foundIndex] = user;
+    return user;
+  }
 }
 
 export default new UserModel();

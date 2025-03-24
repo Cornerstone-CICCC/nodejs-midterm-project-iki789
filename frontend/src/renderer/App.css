@@ -9,7 +9,6 @@
 *::before {
   -webkit-user-select: none;
   -webkit-user-drag: none;
-  -webkit-app-region: no-drag;
   cursor: default;
 }
 
@@ -17,9 +16,7 @@ body {
   position: relative;
   color: white;
   height: 100vh;
-  font-family: sans-serif;
   overflow-y: hidden;
-  background: #333;
   justify-content: center;
   align-items: center;
 }
@@ -60,4 +57,6 @@ button {
 
 .ce-header {
   font-size: 2rem;
+  font-weight: bold;
+  padding-top: 0 !important;
 }

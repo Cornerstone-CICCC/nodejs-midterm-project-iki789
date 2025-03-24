@@ -9,6 +9,7 @@ const userRouter = (0, express_1.Router)();
 userRouter.get("/", user_controller_1.default.getAllUsers);
 userRouter.get("/check-auth", user_controller_1.default.checkAuth);
 userRouter.post("/register", user_controller_1.default.addUser);
+userRouter.post("/update", user_controller_1.default.updateUser);
 userRouter.get("/logout", user_controller_1.default.logout);
 userRouter.post("/login", user_controller_1.default.loginUser);
 userRouter.get("/:email", user_controller_1.default.getUserByEmail);

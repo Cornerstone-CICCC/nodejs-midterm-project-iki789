@@ -1,6 +1,7 @@
 import React from 'react';
-import { FiSidebar, FiEdit, FiTrash2, FiSettings } from 'react-icons/fi';
 import { useDispatch, useSelector } from 'react-redux';
+import { FiEdit, FiTrash2, FiSettings } from 'react-icons/fi';
+import { useNavigate } from 'react-router-dom';
 import { add, remove, setActiveNote } from '../../store/notesSlice';
 import ButtonIcon from '../ButtonIcon';
 import { AppState } from '../../store';
@@ -8,6 +9,7 @@ import { AppState } from '../../store';
 function ActionControls() {
   const activeNote = useSelector((state: AppState) => state.notes.activeNote);
   const dispatch = useDispatch();
+  const navigate = useNavigate();
 
   const createNote = async () => {
     const req = await fetch('http://localhost:3001/notes/add', {
@@ -69,16 +71,15 @@ function ActionControls() {
 
   return (
     <div className="flex gap-0">
-      <ButtonIcon onClick={() => console.log('')}>
-        <FiSidebar size={18} />
-      </ButtonIcon>
       <ButtonIcon onClick={onAddNote}>
         <FiEdit />
       </ButtonIcon>
-      <ButtonIcon onClick={onRemoveNote}>
-        <FiTrash2 />
-      </ButtonIcon>
-      <ButtonIcon onClick={() => console.log('')}>
+      {activeNote && (
+        <ButtonIcon onClick={onRemoveNote}>
+          <FiTrash2 />
+        </ButtonIcon>
+      )}
+      <ButtonIcon onClick={() => navigate('/settings')}>
         <FiSettings />
       </ButtonIcon>
     </div>
