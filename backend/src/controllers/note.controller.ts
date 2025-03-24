@@ -8,6 +8,8 @@ const getAllNotes = (req: Request, res: Response) => {
 };
 
 const getAllUserNotes = (req: Request, res: Response) => {
+  const fullUrl = `${req.protocol}://${req.get("host")}${req.originalUrl}`;
+  console.log(fullUrl);
   if (!req?.session?.userId) {
     res.status(401).json({ error: "Unauthorized to fetch notes." });
     return;

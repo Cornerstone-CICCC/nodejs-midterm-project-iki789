@@ -5,7 +5,7 @@ function TitleBar() {
     <div
       /* @ts-ignore */
       style={{ appRegion: 'drag' }}
-      className="bg-slate-100 text-slate-700 text-center text-sm h-8 flex items-center justify-center font-bold rounded-tl-xl rounded-tr-xl dark:text-white dark:bg-slate-700"
+      className="bg-slate-100 text-slate-700 text-center text-sm h-8 flex items-center justify-center font-bold dark:text-white dark:bg-slate-700"
     >
       Electro Notes
     </div>

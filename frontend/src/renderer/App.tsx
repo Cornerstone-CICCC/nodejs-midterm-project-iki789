@@ -14,6 +14,7 @@ import Auth from './Components/Auth';
 import { AppState } from './store';
 import Settings from './Components/Settings';
 import { logout } from './store/userSlice';
+import { removeUser } from './utils/userStorage';
 
 function Main() {
   const dispatch = useDispatch();
@@ -21,15 +22,21 @@ function Main() {
   useEffect(() => {
     (async () => {
       setInterval(async () => {
-        const req = await fetch('http://localhost:3001/users/check-auth', {
-          headers: {
-            'content-type': 'application/json',
-          },
-          credentials: 'include',
-        });
-        const authRes = await req.json();
-        if (!authRes.userId) {
+        try {
+          const req = await fetch('http://localhost:3001/users/check-auth', {
+            headers: {
+              'content-type': 'application/json',
+            },
+            credentials: 'include',
+          });
+          const authRes = await req.json();
+          if (!authRes.userId) {
+            dispatch(logout());
+            removeUser();
+          }
+        } catch {
           dispatch(logout());
+          removeUser();
         }
       }, 5000);
     })();

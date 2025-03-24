@@ -16,10 +16,10 @@ app.use(express.urlencoded({ extended: true }));
 app.set("trust proxy", 1); // trust first proxy
 app.use(
   cookieSession({
-    name: "session",
+    name: "electroNotesIki",
     keys: ["somestring", "somesecurestring"],
     maxAge: 5 * 60 * 1000,
-    sameSite: "lax",
+    sameSite: false,
     secure: false,
   })
 );

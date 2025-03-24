@@ -17,10 +17,10 @@ app.use(express_1.default.json());
 app.use(express_1.default.urlencoded({ extended: true }));
 app.set("trust proxy", 1); // trust first proxy
 app.use((0, cookie_session_1.default)({
-    name: "session",
+    name: "electroNotesIki",
     keys: ["somestring", "somesecurestring"],
     maxAge: 5 * 60 * 1000,
-    sameSite: "lax",
+    sameSite: false,
     secure: false,
 }));
 app.use("/users", user_routes_1.default);

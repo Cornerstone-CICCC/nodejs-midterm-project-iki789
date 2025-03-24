@@ -9,7 +9,13 @@
  * `./src/main.js` using webpack. This gives us some performance wins.
  */
 import path from 'path';
-import { app, BrowserWindow, shell, ipcMain } from 'electron';
+import {
+  app,
+  BrowserWindow,
+  shell,
+  ipcMain,
+  systemPreferences,
+} from 'electron';
 import { autoUpdater } from 'electron-updater';
 import log from 'electron-log';
 import MenuBuilder from './menu';
@@ -29,6 +35,18 @@ ipcMain.on('ipc-example', async (event, arg) => {
   const msgTemplate = (pingPong: string) => `IPC test: ${pingPong}`;
   console.log(msgTemplate(arg));
   event.reply('ipc-example', msgTemplate('pong'));
+  console.log(arg);
+  if (arg.includes('touchid')) {
+    systemPreferences
+      .promptTouchID('Please use Touch ID to login to Electro Notes')
+      .then(() => {
+        event.reply('ipc-example', true);
+      })
+      .catch((err) => {
+        event.reply('ipc-example', false);
+        console.log(err);
+      });
+  }
 });
 
 if (process.env.NODE_ENV === 'production') {

@@ -1,8 +1,9 @@
 import React, { FormEvent, useState, useRef, useEffect } from 'react';
 import { useDispatch } from 'react-redux';
 import { useNavigate } from 'react-router-dom';
+import { MdFingerprint } from 'react-icons/md';
 import { login } from '../../store/userSlice';
-import { setUser } from '../../utils/userStorage';
+import { setUser, getUser } from '../../utils/userStorage';
 import Loading from '../Loading';
 
 function Auth() {
@@ -13,7 +14,9 @@ function Auth() {
   const [defaultEmail, setDefaultEmail] = useState('ryoga@ishii.com');
   const [defaultPass, setDefaultPass] = useState('test');
   const [error, setError] = useState('');
+  const [authWithTouchId, setAuthWithTouchId] = useState<boolean | null>(null);
   const formRef = useRef<HTMLFormElement | null>(null);
+  const hasLocalUser = getUser();
 
   useEffect(() => {
     setError('');
@@ -61,6 +64,18 @@ function Auth() {
     await handleFormRequest(Object.fromEntries(formData));
 
     setIsLoading(false);
+  };
+
+  const handleTouchId = () => {
+    window.electron.ipcRenderer.sendMessage('ipc-example', ['touchid']);
+    window.electron.ipcRenderer.on('ipc-example', (arg) => {
+      // eslint-disable-next-line no-console
+      if (arg === true) {
+        dispatch(login(true));
+        navigate('/');
+      }
+      setAuthWithTouchId(arg as boolean);
+    });
   };
 
   return (
@@ -143,6 +158,17 @@ function Auth() {
                     : "Don't have an account?"}
                 </button>
               </div>
+              {hasLocalUser && (
+                <div className="flex justify-center mt-8">
+                  <button
+                    type="button"
+                    className={`w-[32px] h-[32px] flex justify-center items-center rounded-full border-1 transition-all duration-400 ${authWithTouchId && 'text-green-500 border-green-500 dark:text-green-500 dark:border-green-500'} ${authWithTouchId === null && 'dark:border-slate-500 dark:text-slate-500'} ${authWithTouchId === false && 'dark:border-red-500 dark:text-red-500'}`}
+                    onClick={handleTouchId}
+                  >
+                    <MdFingerprint size={24} className="cursor-pointer" />
+                  </button>
+                </div>
+              )}
             </div>
           </form>
         </div>
