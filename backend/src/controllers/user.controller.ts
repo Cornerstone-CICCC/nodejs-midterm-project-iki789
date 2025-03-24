@@ -95,6 +95,7 @@ const logout = (req: Request, res: Response) => {
   if (req.session) {
     req.session = null;
     res.status(200).json({ success: true, message: "Logged out user" });
+    return;
   }
   res.json({ success: true, message: "User logged out successfully" });
 };

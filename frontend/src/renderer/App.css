@@ -17,6 +17,7 @@ body {
   color: white;
   height: 100vh;
   overflow-y: hidden;
+  background-color: #333;
   justify-content: center;
   align-items: center;
 }

@@ -12,26 +12,26 @@ const notes = [
                 {
                     type: "header",
                     data: {
-                        text: "Grocery Run Today",
+                        text: "Simple Ramen, Simple Peace",
                         level: 2,
                     },
                 },
                 {
                     type: "paragraph",
                     data: {
-                        text: "I finally made it to the store after putting it off all week. The fridge was looking pretty sad.",
+                        text: "Today, I made ramen. Not from a packet — from scratch. The broth simmered for hours, rich with flavor and warmth.",
                     },
                 },
                 {
                     type: "paragraph",
                     data: {
-                        text: "Grabbed the essentials: bread, bananas, oat milk, and a ton of snacks I probably didn’t need.",
+                        text: "There’s something meditative about slicing the scallions, soft-boiling the egg just right, watching the steam rise.",
                     },
                 },
                 {
                     type: "paragraph",
                     data: {
-                        text: "Totally forgot to buy rice again. Gotta write it down next time in all caps or something.",
+                        text: "For a moment, I was just a man in a kitchen, not a shinobi. And it felt... normal.",
                     },
                 },
             ],
@@ -48,26 +48,26 @@ const notes = [
                 {
                     type: "header",
                     data: {
-                        text: "Saturday Chore Madness",
+                        text: "Walking Through the Rain",
                         level: 2,
                     },
                 },
                 {
                     type: "paragraph",
                     data: {
-                        text: "Started cleaning around noon and didn’t stop until the sun was down. Why is it so easy to let stuff pile up?",
+                        text: "The rain fell steadily today. No missions, no blood — just quiet steps on soaked stone.",
                     },
                 },
                 {
                     type: "paragraph",
                     data: {
-                        text: "Vacuumed the living room, scrubbed the sink, and tackled that weird smell in the fridge. Pretty sure it was the leftovers from two weeks ago.",
+                        text: "People avoid the rain. I welcome it. It hides the scent of sorrow better than perfume ever could.",
                     },
                 },
                 {
                     type: "paragraph",
                     data: {
-                        text: "Still need to fold laundry, but that’s a future me problem.",
+                        text: "Sometimes I wonder if Sasuke likes the rain too.",
                     },
                 },
             ],
@@ -84,26 +84,26 @@ const notes = [
                 {
                     type: "header",
                     data: {
-                        text: "Late Night Curiosity",
+                        text: "Dreams I Never Speak Of",
                         level: 2,
                     },
                 },
                 {
                     type: "paragraph",
                     data: {
-                        text: "Couldn't sleep again, so I ended up googling a bunch of random stuff like why cats knead blankets and how long stars live.",
+                        text: "I dreamt I was at a festival. Lanterns lit the night, and laughter surrounded me. Sasuke was there. So was Mother.",
                     },
                 },
                 {
                     type: "paragraph",
                     data: {
-                        text: "Also stumbled into a rabbit hole about how memory works and why we forget people’s names instantly.",
+                        text: "No masks, no ANBU, no guilt — just warmth. It’s a dream that feels more real than reality sometimes.",
                     },
                 },
                 {
                     type: "paragraph",
                     data: {
-                        text: "Might start a ‘things I randomly learned’ section somewhere in this app.",
+                        text: "But I always wake up before the fireworks.",
                     },
                 },
             ],
@@ -120,26 +120,26 @@ const notes = [
                 {
                     type: "header",
                     data: {
-                        text: "Movie Night Picks",
+                        text: "The Weight Behind My Eyes",
                         level: 2,
                     },
                 },
                 {
                     type: "paragraph",
                     data: {
-                        text: "Was in the mood for something feel-good, so I rewatched The Secret Life of Walter Mitty. Still hits just right.",
+                        text: "The Sharingan sees much, but it costs more than it gives.",
                     },
                 },
                 {
                     type: "paragraph",
                     data: {
-                        text: "Debated starting a new anime, but my attention span wasn’t cooperating tonight.",
+                        text: "I sometimes forget what it’s like to look at someone without analyzing weakness.",
                     },
                 },
                 {
                     type: "paragraph",
                     data: {
-                        text: "Might do a Studio Ghibli weekend soon — Spirited Away, Howl’s, and maybe My Neighbor Totoro for comfort.",
+                        text: "If I could turn it off completely, would I still be myself?",
                     },
                 },
             ],
@@ -156,26 +156,26 @@ const notes = [
                 {
                     type: "header",
                     data: {
-                        text: "2AM Ramblings",
+                        text: "A Crow Landed Beside Me",
                         level: 2,
                     },
                 },
                 {
                     type: "paragraph",
                     data: {
-                        text: "Why do all the deep thoughts hit right when I’m about to fall asleep?",
+                        text: "It didn’t speak. It didn’t judge. It just sat there — silent, black feathers glistening in the sun.",
                     },
                 },
                 {
                     type: "paragraph",
                     data: {
-                        text: "I started wondering what it’d be like to live in a small cabin in the woods. Just me, a cat, and lots of books.",
+                        text: "Crows are seen as omens. To me, they are companions.",
                     },
                 },
                 {
                     type: "paragraph",
                     data: {
-                        text: "Maybe I should start journaling more often. Or maybe I just need to go to bed earlier.",
+                        text: "I think I trust them more than most people.",
                     },
                 },
             ],
@@ -192,26 +192,26 @@ const notes = [
                 {
                     type: "header",
                     data: {
-                        text: "Prepping for That Trip",
+                        text: "Strange Peace in Tea",
                         level: 2,
                     },
                 },
                 {
                     type: "paragraph",
                     data: {
-                        text: "I’m only going away for a night but somehow I’ve packed like I’m leaving for a week.",
+                        text: "A kind old woman gave me tea today without asking who I was.",
                     },
                 },
                 {
                     type: "paragraph",
                     data: {
-                        text: "Mostly clothes, chargers, snacks, and like three books I won’t actually read.",
+                        text: "It tasted like jasmine and calm. For five minutes, I was just another traveler, not a rogue shinobi.",
                     },
                 },
                 {
                     type: "paragraph",
                     data: {
-                        text: "Need to double-check that I packed my toothbrush though. I always forget that one thing.",
+                        text: "Small kindnesses feel louder than thunder.",
                     },
                 },
             ],
@@ -228,26 +228,26 @@ const notes = [
                 {
                     type: "header",
                     data: {
-                        text: "Books on My Radar",
+                        text: "The Silence Between Missions",
                         level: 2,
                     },
                 },
                 {
                     type: "paragraph",
                     data: {
-                        text: "I keep hearing good things about Atomic Habits — maybe it’s time to finally read it.",
+                        text: "It’s not the violence that haunts me. It’s the silence that follows.",
                     },
                 },
                 {
                     type: "paragraph",
                     data: {
-                        text: "Also want to revisit some Murakami. Norwegian Wood just gives a whole vibe on rainy days.",
+                        text: "When everything is still, I can hear my heartbeat — slow, steady, undeserved.",
                     },
                 },
                 {
                     type: "paragraph",
                     data: {
-                        text: "Might do a no-screens weekend and try to read for real instead of just scrolling endlessly.",
+                        text: "In those moments, I wonder if redemption is possible.",
                     },
                 },
             ],
@@ -264,26 +264,26 @@ const notes = [
                 {
                     type: "header",
                     data: {
-                        text: "Gift Ideas (Help!)",
+                        text: "Training Alone",
                         level: 2,
                     },
                 },
                 {
                     type: "paragraph",
                     data: {
-                        text: "Mom’s birthday is coming up and I have zero clue what to get her.",
+                        text: "I practiced genjutsu today with no target — just illusions cast on water to see if I still had precision.",
                     },
                 },
                 {
                     type: "paragraph",
                     data: {
-                        text: "Thinking maybe a cozy candle set or something handmade — she likes those thoughtful touches.",
+                        text: "Sometimes, I train not to get stronger, but to forget.",
                     },
                 },
                 {
                     type: "paragraph",
                     data: {
-                        text: "Might try making a mini photo album if I can find cute old pictures.",
+                        text: "Muscle memory is easier to live with than actual memory.",
                     },
                 },
             ],
@@ -300,26 +300,26 @@ const notes = [
                 {
                     type: "header",
                     data: {
-                        text: "This Week’s Meals (Hopefully)",
+                        text: "When I Watch the Moon",
                         level: 2,
                     },
                 },
                 {
                     type: "paragraph",
                     data: {
-                        text: "Trying to actually cook this week instead of ordering out every day.",
+                        text: "The moon has seen everything. Blood, betrayal, forgiveness. It just watches — never judging.",
                     },
                 },
                 {
                     type: "paragraph",
                     data: {
-                        text: "Monday: Stir fry. Tuesday: Pasta. Wednesday: Leftovers. Thursday: Tacos maybe?",
+                        text: "I wonder how many secrets the moon holds. I wonder if it knows mine.",
                     },
                 },
                 {
                     type: "paragraph",
                     data: {
-                        text: "Friday is always takeout night though. That’s tradition.",
+                        text: "If reincarnation is real, I want to come back as the moon.",
                     },
                 },
             ],
@@ -336,26 +336,278 @@ const notes = [
                 {
                     type: "header",
                     data: {
-                        text: "Apps I’m Addicted To",
+                        text: "A Thought About Brotherhood",
                         level: 2,
                     },
                 },
                 {
                     type: "paragraph",
                     data: {
-                        text: "I check Spotify before I even get out of bed. My Discover Weekly has been fire lately.",
+                        text: "Sometimes I imagine what it would’ve been like to grow old with Sasuke. To argue about dumb things. To protect him without lies.",
                     },
                 },
                 {
                     type: "paragraph",
                     data: {
-                        text: "Notion is slowly becoming my brain. I use it for everything — notes, plans, even dream logs.",
+                        text: "But then I remember — I made a choice. One that fractured him to save him.",
                     },
                 },
                 {
                     type: "paragraph",
                     data: {
-                        text: "Also, I should really spend less time on Instagram. Seriously.",
+                        text: "I just hope he understands one day. Even if it’s too late.",
+                    },
+                },
+            ],
+            version: "2.28.2",
+        },
+    },
+    {
+        id: (0, uuid_1.v4)(),
+        createdAt: new Date("2025-03-02T10:15:00Z"),
+        userId: "84da550e-e0d0-4ec7-8e64-7377a626955b",
+        note: {
+            time: 1678902234001,
+            blocks: [
+                {
+                    type: "header",
+                    data: {
+                        text: "Ramen with Iruka-sensei Again!",
+                        level: 2,
+                    },
+                },
+                {
+                    type: "paragraph",
+                    data: {
+                        text: "He treated me to miso ramen today. Same place, same seat, same awesome flavor.",
+                    },
+                },
+                {
+                    type: "paragraph",
+                    data: {
+                        text: "We didn’t talk about anything big. Just laughed a lot. That’s what I love about him.",
+                    },
+                },
+                {
+                    type: "paragraph",
+                    data: {
+                        text: "No matter what happens, ramen always brings me back to the people who believed in me first.",
+                    },
+                },
+            ],
+            version: "2.28.2",
+        },
+    },
+    {
+        id: (0, uuid_1.v4)(),
+        createdAt: new Date("2025-03-02T10:15:00Z"),
+        userId: "84da550e-e0d0-4ec7-8e64-7377a626955b",
+        note: {
+            time: 1678902234002,
+            blocks: [
+                {
+                    type: "header",
+                    data: {
+                        text: "Training Until I Drop!",
+                        level: 2,
+                    },
+                },
+                {
+                    type: "paragraph",
+                    data: {
+                        text: "Shadow clone training was brutal today. My chakra pool is screaming at me.",
+                    },
+                },
+                {
+                    type: "paragraph",
+                    data: {
+                        text: "But I gotta keep pushing. I’m not the same kid I was before. Hokage dreams don’t come easy.",
+                    },
+                },
+                {
+                    type: "paragraph",
+                    data: {
+                        text: "One day, they’ll look at me and say, “That’s Naruto Uzumaki — our Hokage.” Believe it!",
+                    },
+                },
+            ],
+            version: "2.28.2",
+        },
+    },
+    {
+        id: (0, uuid_1.v4)(),
+        createdAt: new Date("2025-03-02T10:15:00Z"),
+        userId: "84da550e-e0d0-4ec7-8e64-7377a626955b",
+        note: {
+            time: 1678902234003,
+            blocks: [
+                {
+                    type: "header",
+                    data: {
+                        text: "Thinking About Sasuke Again",
+                        level: 2,
+                    },
+                },
+                {
+                    type: "paragraph",
+                    data: {
+                        text: "No matter what he says or does, I can’t give up on him.",
+                    },
+                },
+                {
+                    type: "paragraph",
+                    data: {
+                        text: "We fought side by side. We laughed. We were brothers. That doesn’t just go away.",
+                    },
+                },
+                {
+                    type: "paragraph",
+                    data: {
+                        text: "I’ll bring him back, even if it takes everything I’ve got. That’s a promise!",
+                    },
+                },
+            ],
+            version: "2.28.2",
+        },
+    },
+    {
+        id: (0, uuid_1.v4)(),
+        createdAt: new Date("2025-03-02T10:15:00Z"),
+        userId: "84da550e-e0d0-4ec7-8e64-7377a626955b",
+        note: {
+            time: 1678902234004,
+            blocks: [
+                {
+                    type: "header",
+                    data: {
+                        text: "Ichiraku’s New Menu Item!",
+                        level: 2,
+                    },
+                },
+                {
+                    type: "paragraph",
+                    data: {
+                        text: "They added spicy garlic pork ramen today. I nearly cried, it was so good.",
+                    },
+                },
+                {
+                    type: "paragraph",
+                    data: {
+                        text: "Teuchi-san said I was the first to try it. Said it was “worthy of a future Hokage.”",
+                    },
+                },
+                {
+                    type: "paragraph",
+                    data: {
+                        text: "Ramen like that gives me the strength to punch a boulder. Or at least try.",
+                    },
+                },
+            ],
+            version: "2.28.2",
+        },
+    },
+    {
+        id: (0, uuid_1.v4)(),
+        createdAt: new Date("2025-03-02T10:15:00Z"),
+        userId: "84da550e-e0d0-4ec7-8e64-7377a626955b",
+        note: {
+            time: 1678902234005,
+            blocks: [
+                {
+                    type: "header",
+                    data: {
+                        text: "A Letter I Never Sent to Jiraiya",
+                        level: 2,
+                    },
+                },
+                {
+                    type: "paragraph",
+                    data: {
+                        text: "Hey Pervy Sage... It’s been a while. I hope you’re watching. I’ve come a long way.",
+                    },
+                },
+                {
+                    type: "paragraph",
+                    data: {
+                        text: "I mess up sometimes, but I remember your training. Your books. Your goofy smile.",
+                    },
+                },
+                {
+                    type: "paragraph",
+                    data: {
+                        text: "You believed in me when I didn’t even know how. Thank you.",
+                    },
+                },
+            ],
+            version: "2.28.2",
+        },
+    },
+    {
+        id: (0, uuid_1.v4)(),
+        createdAt: new Date("2025-03-02T10:15:00Z"),
+        userId: "84da550e-e0d0-4ec7-8e64-7377a626955b",
+        note: {
+            time: 1678902234006,
+            blocks: [
+                {
+                    type: "header",
+                    data: {
+                        text: "Tried Meditating... Failed Instantly",
+                        level: 2,
+                    },
+                },
+                {
+                    type: "paragraph",
+                    data: {
+                        text: "Tried to sit still like Kakashi-sensei said. Lasted 45 seconds before I started thinking about grilled fish.",
+                    },
+                },
+                {
+                    type: "paragraph",
+                    data: {
+                        text: "Meditation is hard, okay? I’m better at moving than sitting.",
+                    },
+                },
+                {
+                    type: "paragraph",
+                    data: {
+                        text: "Still gonna try again tomorrow. Maybe I’ll tape my hands to my knees or something.",
+                    },
+                },
+            ],
+            version: "2.28.2",
+        },
+    },
+    {
+        id: (0, uuid_1.v4)(),
+        createdAt: new Date("2025-03-02T10:15:00Z"),
+        userId: "84da550e-e0d0-4ec7-8e64-7377a626955b",
+        note: {
+            time: 1678902234007,
+            blocks: [
+                {
+                    type: "header",
+                    data: {
+                        text: "I Saw Konohamaru Training Today",
+                        level: 2,
+                    },
+                },
+                {
+                    type: "paragraph",
+                    data: {
+                        text: "He reminded me of... well, me. Same spark, same stubbornness, same nosebleeds from Sexy Jutsu.",
+                    },
+                },
+                {
+                    type: "paragraph",
+                    data: {
+                        text: "I don’t know if I’m a great role model, but he looks up to me. So I’m gonna keep trying to be better.",
+                    },
+                },
+                {
+                    type: "paragraph",
+                    data: {
+                        text: "If he becomes Hokage before me though... I’m filing a complaint.",
                     },
                 },
             ],
@@ -367,14 +619,14 @@ exports.default = {
     users: [
         {
             id: "ede471c6-18a6-40f2-8ef6-df7a8a75fd2d",
-            name: "Ryoga",
+            name: "Itachi Uchiha",
             password: "$2b$12$4.fmcm0o5bcVfqTKCJ2DSuJFHd4cGwO.FhrX.VKmek7N89V0AeDl2",
-            email: "ryoga@ishii.com",
+            email: "itachi@uchiha.com",
         },
         {
-            name: "Pinion",
-            password: "$2b$12$i/lWDbHUhUtQPbEZM80X9OIXydxTAkYEpZYD8cLF0l6nM8mtdtpJ.",
-            email: "pinion@team.com",
+            name: "Naruto Uzumaki",
+            password: "$2b$12$4.fmcm0o5bcVfqTKCJ2DSuJFHd4cGwO.FhrX.VKmek7N89V0AeDl2",
+            email: "naruto@team7.com",
             id: "84da550e-e0d0-4ec7-8e64-7377a626955b",
         },
     ],

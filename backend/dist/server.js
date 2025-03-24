@@ -19,7 +19,7 @@ app.set("trust proxy", 1); // trust first proxy
 app.use((0, cookie_session_1.default)({
     name: "electroNotesIki",
     keys: ["somestring", "somesecurestring"],
-    maxAge: 5 * 60 * 1000,
+    maxAge: 20 * 60 * 1000,
     sameSite: false,
     secure: false,
 }));

@@ -18,7 +18,7 @@ app.use(
   cookieSession({
     name: "electroNotesIki",
     keys: ["somestring", "somesecurestring"],
-    maxAge: 5 * 60 * 1000,
+    maxAge: 20 * 60 * 1000,
     sameSite: false,
     secure: false,
   })

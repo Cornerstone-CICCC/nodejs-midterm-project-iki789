@@ -5,6 +5,7 @@ import { FiArrowLeft } from 'react-icons/fi';
 import { getUser, removeUser } from '../../utils/userStorage';
 import Loading from '../Loading';
 import ButtonIcon from '../ButtonIcon';
+import { clearNotes } from '../../store/notesSlice';
 import { logout } from '../../store/userSlice';
 
 interface User {
@@ -82,6 +83,7 @@ function Settings() {
       credentials: 'include',
     });
     dispatch(logout());
+    dispatch(clearNotes());
     removeUser();
   };
 

@@ -11,8 +11,8 @@ function Auth() {
   const navigate = useNavigate();
   const [isLoading, setIsLoading] = useState(false);
   const [isRegister, setIsRegister] = useState(false);
-  const [defaultEmail, setDefaultEmail] = useState('ryoga@ishii.com');
-  const [defaultPass, setDefaultPass] = useState('test');
+  const [defaultEmail, setDefaultEmail] = useState(''); // itachi@uchiha.com
+  const [defaultPass, setDefaultPass] = useState(''); // gus
   const [error, setError] = useState('');
   const [authWithTouchId, setAuthWithTouchId] = useState<boolean | null>(null);
   const formRef = useRef<HTMLFormElement | null>(null);
@@ -162,7 +162,7 @@ function Auth() {
                 <div className="flex justify-center mt-8">
                   <button
                     type="button"
-                    className={`w-[32px] h-[32px] flex justify-center items-center rounded-full border-1 transition-all duration-400 ${authWithTouchId && 'text-green-500 border-green-500 dark:text-green-500 dark:border-green-500'} ${authWithTouchId === null && 'dark:border-slate-500 dark:text-slate-500'} ${authWithTouchId === false && 'dark:border-red-500 dark:text-red-500'}`}
+                    className={`w-[32px] h-[32px] flex justify-center items-center rounded-full border-1 transition-all duration-400 ${authWithTouchId && 'text-blue-500 border-blue-500 dark:text-blue-500 dark:border-blue-500'} ${authWithTouchId === null && 'dark:border-slate-500 dark:text-slate-500'} ${authWithTouchId === false && 'border-red-500 text-red-500 dark:border-red-500 dark:text-red-500'}`}
                     onClick={handleTouchId}
                   >
                     <MdFingerprint size={24} className="cursor-pointer" />

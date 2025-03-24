@@ -72,6 +72,9 @@ export const notesSlice = createSlice({
     setActiveNote: (state, action: PayloadAction<Note | null>) => {
       state.activeNote = action.payload;
     },
+    clearNotes: () => {
+      return initialState;
+    },
   },
   selectors: {
     getNote: (state, id: string) => {
@@ -85,7 +88,7 @@ export const notesSlice = createSlice({
   },
 });
 
-export const { add, remove, update, setNotes, setActiveNote } =
+export const { add, remove, update, setNotes, setActiveNote, clearNotes } =
   notesSlice.actions;
 export const { getNote, getNotes } = notesSlice.selectors;
 
